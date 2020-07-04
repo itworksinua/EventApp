@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CategoryViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class CategoryViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITextFieldDelegate {
     let categories = ["Food", "Adventure", "Social", "For 2", "Sport", "Art"]
     @IBOutlet weak var collecion: UICollectionView!
     
@@ -35,6 +35,10 @@ class CategoryViewController: UIViewController, UICollectionViewDelegate, UIColl
         ])
         return CGSize(width: itemSize.width + 30.0, height: 40)
     }
-
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
 
 }

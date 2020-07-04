@@ -32,6 +32,9 @@
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <connections>
+                        <segue destination="uP1-Qo-T4H" kind="relationship" relationship="rootViewController" id="vdn-2v-GiU"/>
+                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gvl-ii-Scz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -318,8 +321,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YLD-rz-7dT">
+                                <rect key="frame" x="20" y="108" width="374" height="40"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_search" translatesAutoresizingMaskIntoConstraints="NO" id="1ne-f5-0on">
+                                        <rect key="frame" x="0.0" y="8" width="35" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="4gN-kS-Aeg"/>
+                                            <constraint firstAttribute="width" constant="35" id="WC7-e0-pL1"/>
+                                        </constraints>
+                                    </imageView>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search something interesting" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hks-e1-Alx">
+                                        <rect key="frame" x="35" y="0.0" width="339" height="40"/>
+                                        <color key="textColor" name="ColorText"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="uP1-Qo-T4H" id="xy2-It-C7F"/>
+                                        </connections>
+                                    </textField>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J5s-10-dRf">
+                                        <rect key="frame" x="0.0" y="39" width="374" height="1"/>
+                                        <color key="backgroundColor" name="ColorBorder"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="u3V-cL-J81"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="J5s-10-dRf" firstAttribute="leading" secondItem="YLD-rz-7dT" secondAttribute="leading" id="1bj-j0-3M3"/>
+                                    <constraint firstAttribute="bottom" secondItem="J5s-10-dRf" secondAttribute="bottom" id="R93-vy-fZu"/>
+                                    <constraint firstItem="hks-e1-Alx" firstAttribute="top" secondItem="YLD-rz-7dT" secondAttribute="top" id="Wwe-gh-MpF"/>
+                                    <constraint firstAttribute="height" constant="40" id="cia-lw-QvQ"/>
+                                    <constraint firstItem="hks-e1-Alx" firstAttribute="leading" secondItem="1ne-f5-0on" secondAttribute="trailing" id="cyh-Ta-C53"/>
+                                    <constraint firstItem="1ne-f5-0on" firstAttribute="leading" secondItem="YLD-rz-7dT" secondAttribute="leading" id="fmE-6Q-Rsd"/>
+                                    <constraint firstAttribute="trailing" secondItem="J5s-10-dRf" secondAttribute="trailing" id="g1L-LQ-GgR"/>
+                                    <constraint firstAttribute="trailing" secondItem="hks-e1-Alx" secondAttribute="trailing" id="ig8-0Q-UWP"/>
+                                    <constraint firstItem="1ne-f5-0on" firstAttribute="centerY" secondItem="YLD-rz-7dT" secondAttribute="centerY" id="ihV-JW-Ttl"/>
+                                    <constraint firstAttribute="bottom" secondItem="hks-e1-Alx" secondAttribute="bottom" id="qe2-sx-VSX"/>
+                                </constraints>
+                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QEB-JV-GjK">
-                                <rect key="frame" x="0.0" y="144" width="414" height="40"/>
+                                <rect key="frame" x="0.0" y="188" width="414" height="40"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="jLe-6m-Oe4"/>
@@ -374,9 +418,12 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="cCi-Uc-hLg" firstAttribute="trailing" secondItem="YLD-rz-7dT" secondAttribute="trailing" constant="20" id="1df-WU-4Oh"/>
                             <constraint firstItem="QEB-JV-GjK" firstAttribute="top" secondItem="cCi-Uc-hLg" secondAttribute="top" constant="100" id="IJh-ez-sOM"/>
                             <constraint firstItem="QEB-JV-GjK" firstAttribute="leading" secondItem="cCi-Uc-hLg" secondAttribute="leading" id="Myy-c6-9Wb"/>
                             <constraint firstItem="cCi-Uc-hLg" firstAttribute="trailing" secondItem="QEB-JV-GjK" secondAttribute="trailing" id="STS-3q-9rv"/>
+                            <constraint firstItem="YLD-rz-7dT" firstAttribute="leading" secondItem="cCi-Uc-hLg" secondAttribute="leading" constant="20" id="dnW-9m-A3V"/>
+                            <constraint firstItem="YLD-rz-7dT" firstAttribute="top" secondItem="cCi-Uc-hLg" secondAttribute="top" constant="20" id="hUC-e9-7fw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cCi-Uc-hLg"/>
                     </view>
@@ -387,7 +434,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bty-4M-QdO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1084" y="817"/>
+            <point key="canvasLocation" x="1082.608695652174" y="816.96428571428567"/>
         </scene>
     </scenes>
     <resources>
@@ -396,6 +443,7 @@
         <image name="icon_add_calendar" width="23" height="26"/>
         <image name="icon_calendar" width="18" height="18"/>
         <image name="icon_like_off" width="31" height="31"/>
+        <image name="icon_search" width="24" height="24"/>
         <image name="icon_send_invite" width="29" height="29"/>
         <image name="icon_time" width="17" height="17"/>
         <namedColor name="ColorBorder">
