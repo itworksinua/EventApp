@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		197A13D924B12C14007144E0 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197A13D824B12C14007144E0 /* EventViewController.swift */; };
+		197A13DB24B13E18007144E0 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197A13DA24B13E18007144E0 /* CategoryViewController.swift */; };
+		197A13DD24B13EDA007144E0 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197A13DC24B13EDA007144E0 /* CategoryCollectionViewCell.swift */; };
 		8435071924AE6F12002E0823 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435071824AE6F12002E0823 /* AppDelegate.swift */; };
 		8435071B24AE6F12002E0823 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435071A24AE6F12002E0823 /* SceneDelegate.swift */; };
 		8435071D24AE6F12002E0823 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435071C24AE6F12002E0823 /* ViewController.swift */; };
@@ -21,6 +23,8 @@
 
 /* Begin PBXFileReference section */
 		197A13D824B12C14007144E0 /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
+		197A13DA24B13E18007144E0 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		197A13DC24B13EDA007144E0 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		8435071524AE6F12002E0823 /* EventApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8435071824AE6F12002E0823 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8435071A24AE6F12002E0823 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +80,7 @@
 				8435072324AE6F15002E0823 /* LaunchScreen.storyboard */,
 				8435072624AE6F15002E0823 /* Info.plist */,
 				197A13D824B12C14007144E0 /* EventViewController.swift */,
+				197A13DA24B13E18007144E0 /* CategoryViewController.swift */,
 			);
 			path = EventApp;
 			sourceTree = "<group>";
@@ -85,6 +90,7 @@
 			children = (
 				8435072D24AE6F35002E0823 /* TableViewCell.swift */,
 				8435072E24AE6F35002E0823 /* TableViewCell.xib */,
+				197A13DC24B13EDA007144E0 /* CategoryCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -169,8 +175,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				197A13DD24B13EDA007144E0 /* CategoryCollectionViewCell.swift in Sources */,
 				8435071D24AE6F12002E0823 /* ViewController.swift in Sources */,
 				8435072F24AE6F35002E0823 /* TableViewCell.swift in Sources */,
+				197A13DB24B13E18007144E0 /* CategoryViewController.swift in Sources */,
 				8435071924AE6F12002E0823 /* AppDelegate.swift in Sources */,
 				8435073324AE82EF002E0823 /* EventModel.swift in Sources */,
 				8435071B24AE6F12002E0823 /* SceneDelegate.swift in Sources */,
