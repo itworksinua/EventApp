@@ -9,16 +9,26 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    let categories = ["Food", "Adventure", "Social", "For 2", "Sport", "Art"]
+    @IBOutlet weak var collecion: UICollectionView!
     @IBOutlet var table: UITableView!
     var dataSource = [EventModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         table.register(UINib.init(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "TableCell")
         makeDataSource()
         table.reloadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 
     func makeDataSource() {
@@ -47,7 +57,41 @@ class ViewController: UIViewController {
 
 }
 
+extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        categories.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell", for: indexPath) as! CategoryCollectionViewCell
+        if categories.count > indexPath.row {
+            cell.title = categories[indexPath.row]
+        }
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let item = categories[indexPath.row]
+        let itemSize = item.size(withAttributes: [
+            NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 15)
+        ])
+        return CGSize(width: itemSize.width + 30.0, height: 40)
+    }
+    
+}
+
+extension ViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
+}
+
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSource.count
     }
@@ -59,12 +103,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:TableViewCell = table.dequeueReusableCell(withIdentifier: "TableCell") as! TableViewCell
         cell.updateUI(model: dataSource[indexPath.row])
-        cell.bckgView.layer.cornerRadius = 10
-        cell.bckgView.layer.masksToBounds = true
-        cell.shadowView.layer.cornerRadius = 10
-        cell.shadowView.layer.masksToBounds = true
         return cell
     }
-    
     
 }

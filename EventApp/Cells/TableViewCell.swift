@@ -18,17 +18,15 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var bckgView: UIView!
-    @IBOutlet weak var shadowView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        bckgView.layer.borderWidth = 1
+        bckgView.layer.borderColor = UIColor.init(named: "ColorBorder")?.cgColor
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     func updateUI(model: EventModel) {
