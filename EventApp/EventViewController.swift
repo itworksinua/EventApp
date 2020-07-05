@@ -43,12 +43,6 @@ class EventViewController: UIViewController {
         btnShare.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: btnShare)
         
-        let btnBack: UIButton = UIButton(type: .custom)
-        btnBack.setImage(UIImage(named: "icon_back"), for: .normal)
-        btnBack.addTarget(self, action: #selector(onBack), for: .touchUpInside)
-        btnBack.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: btnBack)
-        
         imgAuthor.layer.borderWidth = 1
         imgAuthor.layer.borderColor = UIColor.init(named: "ColorMain")?.cgColor
         
@@ -73,10 +67,6 @@ class EventViewController: UIViewController {
         let items = ["This app is my favorite"]
         let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
         present(ac, animated: true)
-    }
-    
-    @objc func onBack() {
-        
     }
     
     @IBAction func onLike(_ sender: Any) {

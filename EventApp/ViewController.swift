@@ -106,4 +106,10 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
+        vc.model = dataSource[indexPath.row]
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }
