@@ -31,7 +31,7 @@ class TableViewCell: UITableViewCell {
     
     func updateUI(model: EventModel) {
         event = model
-        date.text = "7"
+        date.text = "27"
         month.text = "Jul"
         backgroundImage.image = UIImage.init(named: model.imageName!)
         favoriteImage.setImage((model.favorite!) ? UIImage.init(named: "icon_like_on") : UIImage.init(named: "icon_like_off") ,for: .normal)

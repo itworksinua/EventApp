@@ -32,12 +32,16 @@ class ViewController: UIViewController {
     }
 
     func makeDataSource() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ssZZZ"
+        let date = dateFormatter.date(from: "2020-07-27T18:44:00+0000")
         let model1 = EventModel.init(id: 1)
         model1.address = "Alexandria, NSW"
         model1.name = "Cooking Class"
         model1.price = "$12,00"
         model1.imageName = "bkg_1"
         model1.favorite = false
+        model1.date = date
         dataSource.append(model1)
         let model2 = EventModel.init(id: 2)
         model2.address = "Hunter Valley, NSW"
@@ -45,6 +49,7 @@ class ViewController: UIViewController {
         model2.price = "Free"
         model2.imageName = "bkg_2"
         model2.favorite = true
+        model2.date = date
         dataSource.append(model2)
         let model3 = EventModel.init(id: 3)
         model3.address = "Hunter Valley, NSW"
@@ -52,6 +57,7 @@ class ViewController: UIViewController {
         model3.price = "$10,00"
         model3.imageName = "bkg_3"
         model3.favorite = false
+        model3.date = date
         dataSource.append(model3)
     }
 

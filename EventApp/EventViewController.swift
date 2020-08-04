@@ -96,16 +96,16 @@ class EventViewController: UIViewController {
         eventStore.requestAccess(to: .event) { (granted, error) in
 
             if (granted) && (error == nil) {
-                print("granted \(granted)")
-                print("error \(error)")
-
                 let event:EKEvent = EKEvent(eventStore: eventStore)
 
                 event.title = model.name
-                event.startDate = Date()
-                event.endDate = Date()
+                event.startDate = model.date!
+                event.endDate = model.date!.addingTimeInterval(60*60)
                 event.notes = model.address
-                event.isAllDay = true
+                let location = CLLocation(latitude: 37.3318, longitude: -122.0312)
+                let structuredLocation = EKStructuredLocation(title: model.address!)
+                structuredLocation.geoLocation = location
+                event.structuredLocation = structuredLocation
                 event.calendar = eventStore.defaultCalendarForNewEvents
                 do {
                     try eventStore.save(event, span: .thisEvent)
